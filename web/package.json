@@ -1,5 +1,8 @@
 {
   "private": true,
+  "overrides": {
+    "vue": "latest"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
@@ -25,5 +28,9 @@
     "sass": "^1.58.3",
     "vite-plugin-eslint": "^1.8.1",
     "vue-eslint-parser": "^9.1.0"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.4.7",
+    "pinia": "^2.0.32"
   }
 }
