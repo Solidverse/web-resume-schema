@@ -1,6 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "additionalProperties": false,
+  "title": "Solidverse Resume Schema",
+  "type": "object",
   "definitions": {
     "iso8601": {
       "type": "string",
@@ -93,546 +95,543 @@
           }
         }
       }
-    }
-  },
+    },
 
-  "profiles": {
-    "metaName": "Social Media Profiles",
-    "type": "array",
-    "description": "Specify any number of social networks that you participate in",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "network": {
-          "metaName": "Network Name",
-          "type": "string",
-          "description": "e.g. Facebook or Twitter"
-        },
-        "username": {
-          "metaName": "Username",
-          "type": "string",
-          "description": "e.g. neutralthoughts"
-        },
-        "url": {
-          "metaName": "URL",
-          "type": "string",
-          "description": "e.g. http://twitter.example.com/neutralthoughts",
-          "format": "uri"
-        }
-      }
-    }
-  },
-
-  "work": {
-    "metaName": "Work Experience",
-    "description": "Work experience. Should be from oldest to most recent.",
-    "type": "array",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. Facebook"
-        },
-        "location": {
-          "metaName": "Location",
-          "type": "string",
-          "description": "e.g. Menlo Park, CA"
-        },
-        "position": {
-          "metaName": "Position",
-          "type": "string",
-          "description": "e.g. Software Engineer"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "description": "e.g. http://facebook.example.com",
-          "format": "uri"
-        },
-        "startDate": {
-          "metaName": "Start Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "endDate": {
-          "metaName": "End Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "summary": {
-          "metaName": "Summary",
-          "type": "string",
-          "description": "Give an overview of your responsibilities and experiences at the company.",
-          "markdown": true
-        }
-      }
-    }
-  },
-
-  "education": {
-    "metaName": "Education",
-    "description": "List your education.",
-    "type": "array",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "institution": {
-          "type": "string",
-          "description": "e.g. Massachusetts Institute of Technology",
-          "metaName": "Institution"
-        },
-        "url": {
-          "type": "string",
-          "description": "e.g. http://facebook.example.com",
-          "format": "uri",
-          "metaName": "Website"
-        },
-        "area": {
-          "type": "string",
-          "description": "e.g. Arts",
-          "metaName": "Area of Study"
-        },
-        "studyType": {
-          "type": "string",
-          "description": "e.g. Bachelor",
-          "metaName": "Study Type"
-        },
-        "startDate": {
-          "$ref": "#/definitions/iso8601"
-        },
-        "endDate": {
-          "$ref": "#/definitions/iso8601"
-        },
-        "score": {
-          "type": "string",
-          "description": "grade point average, e.g. 3.67/4.0",
-          "metaName": "Score / Grade"
-        },
-        "courses": {
-          "type": "array",
-          "description": "List notable courses/subjects",
-          "metaName": "Courses",
-          "additionalItems": false,
-          "items": {
+    "profiles": {
+      "metaName": "Social Media Profiles",
+      "type": "array",
+      "description": "Specify any number of social networks that you participate in",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "network": {
+            "metaName": "Network Name",
             "type": "string",
-            "description": "e.g. H1302 - Introduction to American history"
+            "description": "e.g. Facebook or Twitter"
+          },
+          "username": {
+            "metaName": "Username",
+            "type": "string",
+            "description": "e.g. neutralthoughts"
+          },
+          "url": {
+            "metaName": "URL",
+            "type": "string",
+            "description": "e.g. http://twitter.example.com/neutralthoughts",
+            "format": "uri"
           }
         }
       }
-    }
-  },
-
-  "awards": {
-    "metaName": "Awards",
-    "type": "array",
-    "description": "Specify any awards you have received throughout your professional career",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "title": {
-          "metaName": "Title",
-          "type": "string",
-          "description": "e.g. One of the 100 greatest minds of the century"
-        },
-        "date": {
-          "metaName": "Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "awarder": {
-          "metaName": "Awarder",
-          "type": "string",
-          "description": "e.g. Time Magazine"
-        },
-        "summary": {
-          "metaName": "Summary",
-          "type": "string",
-          "description": "e.g. Received for my work with Quantum Physics"
-        }
-      }
-    }
-  },
-
-  "certificates": {
-    "metaName": "Certifications",
-    "type": "array",
-    "description": "Specify any certificates you have received throughout your professional career",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. Certified Kubernetes Administrator"
-        },
-        "date": {
-          "metaName": "Date",
-          "type": "string",
-          "description": "e.g. 1989-06-12",
-          "format": "date"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "description": "e.g. http://example.com",
-          "format": "uri"
-        },
-        "issuer": {
-          "metaName": "Issuer",
-          "type": "string",
-          "description": "e.g. CNCF"
-        }
-      }
-    }
-  },
-
-  "publications": {
-    "metaName": "Publications",
-    "type": "array",
-    "description": "Specify your publications through your career",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. The World Wide Web"
-        },
-        "publisher": {
-          "metaName": "Publisher",
-          "type": "string",
-          "description": "e.g. IEEE, Computer Magazine"
-        },
-        "releaseDate": {
-          "metaName": "Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "description": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html",
-          "format": "uri"
-        },
-        "summary": {
-          "metaName": "Summary",
-          "type": "string",
-          "description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.",
-          "markdown": true
-        }
-      }
-    }
-  },
-
-  "skills": {
-    "metaName": "Skills",
-    "type": "array",
-    "description": "List out your professional skill-set",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. Web Development"
-        },
-        "level": {
-          "metaName": "Level",
-          "type": "string",
-          "description": "e.g. Master or Novice"
-        },
-        "levelNumber": {
-          "metaName": "Level (Number)",
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 5,
-          "description": "Level of skill in a number from 1 to 5"
-        },
-        "keywords": {
-          "metaName": "Keywords",
-          "type": "array",
-          "description": "List some keywords pertaining to this skill",
-          "additionalItems": false,
-          "items": {
+    },
+  
+    "work": {
+      "metaName": "Work Experience",
+      "description": "Work experience. Should be from oldest to most recent.",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "metaName": "Name",
             "type": "string",
-            "description": "e.g. HTML"
-          }
-        }
-      }
-    }
-  },
-
-  "languages": {
-    "metaName": "Languages",
-    "type": "array",
-    "description": "List any other languages you speak",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "language": {
-          "metaName": "Language",
-          "type": "string",
-          "description": "e.g. English, Spanish"
-        },
-        "fluency": {
-          "metaName": "Fluency",
-          "type": "string",
-          "description": "e.g. Fluent, Beginner"
-        }
-      }
-    }
-  },
-
-  "interests": {
-    "metaName": "Interests",
-    "type": "array",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. Philosophy"
-        },
-        "keywords": {
-          "metaName": "Keywords",
-          "type": "array",
-          "additionalItems": false,
-          "items": {
+            "description": "e.g. Facebook"
+          },
+          "location": {
+            "metaName": "Location",
             "type": "string",
-            "description": "e.g. Friedrich Nietzsche"
-          }
-        }
-      }
-    }
-  },
-
-  "volunteer": {
-    "metaName": "Volunteer Experience",
-    "description": "Volunteering experience. Should be from oldest to most recent.",
-    "type": "array",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "organization": {
-          "metaName": "Organization",
-          "type": "string",
-          "description": "e.g. Facebook"
-        },
-        "position": {
-          "metaName": "Position",
-          "type": "string",
-          "description": "e.g. Software Engineer"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "description": "e.g. http://facebook.example.com",
-          "format": "uri"
-        },
-        "startDate": {
-          "metaName": "Start Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "endDate": {
-          "metaName": "End Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "summary": {
-          "metaName": "Summary",
-          "type": "string",
-          "description": "Give an overview of your responsibilities at the company",
-          "markdown": true
-        }
-      }
-    }
-  },
-
-  "projects": {
-    "metaName": "Projects",
-    "type": "array",
-    "description": "Specify career projects",
-    "additionalItems": false,
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "images": {
-          "metaName": "Project Images",
-          "type": "array",
-          "additionalItems": false,
-          "items": {
+            "description": "e.g. Menlo Park, CA"
+          },
+          "position": {
+            "metaName": "Position",
+            "type": "string",
+            "description": "e.g. Software Engineer"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "description": "e.g. http://facebook.example.com",
+            "format": "uri"
+          },
+          "startDate": {
+            "metaName": "Start Date",
             "$ref": "#/definitions/iso8601"
-          }
-        },
-        "name": {
-          "metaName": "Name",
-          "type": "string",
-          "description": "e.g. The World Wide Web"
-        },
-        "description": {
-          "metaName": "Description",
-          "type": "string",
-          "description": "Short summary of project. e.g. Collated works of 2017."
-        },
-        "startDate": {
-          "metaName": "Start Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "endDate": {
-          "metaName": "End Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "format": "uri",
-          "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
-        },
-        "summary": {
-          "metaName": "Summary",
-          "type": "string",
-          "description": "Give a summary of this project",
-          "markdown": true
-        },
-        "keywords": {
-          "metaName": "Keywords",
-          "type": "array",
-          "description": "Specify special elements involved",
-          "additionalItems": false,
-          "items": {
+          },
+          "endDate": {
+            "metaName": "End Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "summary": {
+            "metaName": "Summary",
             "type": "string",
-            "description": "e.g. AngularJS"
+            "description": "Give an overview of your responsibilities and experiences at the company.",
+            "markdown": true
           }
         }
       }
-    }
-  },
+    },
+  
+    "education": {
+      "metaName": "Education",
+      "description": "List your education.",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "institution": {
+            "type": "string",
+            "description": "e.g. Massachusetts Institute of Technology",
+            "metaName": "Institution"
+          },
+          "url": {
+            "type": "string",
+            "description": "e.g. http://facebook.example.com",
+            "format": "uri",
+            "metaName": "Website"
+          },
+          "area": {
+            "type": "string",
+            "description": "e.g. Arts",
+            "metaName": "Area of Study"
+          },
+          "studyType": {
+            "type": "string",
+            "description": "e.g. Bachelor",
+            "metaName": "Study Type"
+          },
+          "startDate": {
+            "$ref": "#/definitions/iso8601"
+          },
+          "endDate": {
+            "$ref": "#/definitions/iso8601"
+          },
+          "score": {
+            "type": "string",
+            "description": "grade point average, e.g. 3.67/4.0",
+            "metaName": "Score / Grade"
+          },
+          "courses": {
+            "type": "array",
+            "description": "List notable courses/subjects",
+            "metaName": "Courses",
+            "additionalItems": false,
+            "items": {
+              "type": "string",
+              "description": "e.g. H1302 - Introduction to American history"
+            }
+          }
+        }
+      }
+    },
+  
+    "awards": {
+      "metaName": "Awards",
+      "type": "array",
+      "description": "Specify any awards you have received throughout your professional career",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "title": {
+            "metaName": "Title",
+            "type": "string",
+            "description": "e.g. One of the 100 greatest minds of the century"
+          },
+          "date": {
+            "metaName": "Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "awarder": {
+            "metaName": "Awarder",
+            "type": "string",
+            "description": "e.g. Time Magazine"
+          },
+          "summary": {
+            "metaName": "Summary",
+            "type": "string",
+            "description": "e.g. Received for my work with Quantum Physics"
+          }
+        }
+      }
+    },
+  
+    "certificates": {
+      "metaName": "Certifications",
+      "type": "array",
+      "description": "Specify any certificates you have received throughout your professional career",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "metaName": "Name",
+            "type": "string",
+            "description": "e.g. Certified Kubernetes Administrator"
+          },
+          "date": {
+            "metaName": "Date",
+            "type": "string",
+            "description": "e.g. 1989-06-12",
+            "format": "date"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "description": "e.g. http://example.com",
+            "format": "uri"
+          },
+          "issuer": {
+            "metaName": "Issuer",
+            "type": "string",
+            "description": "e.g. CNCF"
+          }
+        }
+      }
+    },
+  
+    "publications": {
+      "metaName": "Publications",
+      "type": "array",
+      "description": "Specify your publications through your career",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "metaName": "Name",
+            "type": "string",
+            "description": "e.g. The World Wide Web"
+          },
+          "publisher": {
+            "metaName": "Publisher",
+            "type": "string",
+            "description": "e.g. IEEE, Computer Magazine"
+          },
+          "releaseDate": {
+            "metaName": "Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "description": "e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html",
+            "format": "uri"
+          },
+          "summary": {
+            "metaName": "Summary",
+            "type": "string",
+            "description": "Short summary of publication. e.g. Discussion of the World Wide Web, HTTP, HTML.",
+            "markdown": true
+          }
+        }
+      }
+    },
+  
+    "skills": {
+      "metaName": "Skills",
+      "type": "array",
+      "description": "List out your professional skill-set",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "metaName": "Name",
+            "type": "string",
+            "description": "e.g. Web Development"
+          },
+          "level": {
+            "metaName": "Level",
+            "type": "string",
+            "description": "e.g. Master or Novice"
+          },
+          "levelNumber": {
+            "metaName": "Level (Number)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Level of skill in a number from 1 to 5"
+          },
+          "keywords": {
+            "metaName": "Keywords",
+            "type": "array",
+            "description": "List some keywords pertaining to this skill",
+            "additionalItems": false,
+            "items": {
+              "type": "string",
+              "description": "e.g. HTML"
+            }
+          }
+        }
+      }
+    },
+  
+    "languages": {
+      "metaName": "Languages",
+      "type": "array",
+      "description": "List any other languages you speak",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "language": {
+            "metaName": "Language",
+            "type": "string",
+            "description": "e.g. English, Spanish"
+          },
+          "fluency": {
+            "metaName": "Fluency",
+            "type": "string",
+            "description": "e.g. Fluent, Beginner"
+          }
+        }
+      }
+    },
+  
+    "interests": {
+      "metaName": "Interests",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "metaName": "Name",
+            "type": "string",
+            "description": "e.g. Philosophy"
+          },
+          "keywords": {
+            "metaName": "Keywords",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "type": "string",
+              "description": "e.g. Friedrich Nietzsche"
+            }
+          }
+        }
+      }
+    },
+  
+    "volunteer": {
+      "metaName": "Volunteer Experience",
+      "description": "Volunteering experience. Should be from oldest to most recent.",
+      "type": "array",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "organization": {
+            "metaName": "Organization",
+            "type": "string",
+            "description": "e.g. Facebook"
+          },
+          "position": {
+            "metaName": "Position",
+            "type": "string",
+            "description": "e.g. Software Engineer"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "description": "e.g. http://facebook.example.com",
+            "format": "uri"
+          },
+          "startDate": {
+            "metaName": "Start Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "endDate": {
+            "metaName": "End Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "summary": {
+            "metaName": "Summary",
+            "type": "string",
+            "description": "Give an overview of your responsibilities at the company",
+            "markdown": true
+          }
+        }
+      }
+    },
+  
+    "projects": {
+      "metaName": "Projects",
+      "type": "array",
+      "description": "Specify career projects",
+      "additionalItems": false,
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "images": {
+            "metaName": "Project Images",
+            "type": "array",
+            "additionalItems": false,
+            "items": {
+              "$ref": "#/definitions/iso8601"
+            }
+          },
+          "name": {
+            "metaName": "Name",
+            "type": "string",
+            "description": "e.g. The World Wide Web"
+          },
+          "description": {
+            "metaName": "Description",
+            "type": "string",
+            "description": "Short summary of project. e.g. Collated works of 2017."
+          },
+          "startDate": {
+            "metaName": "Start Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "endDate": {
+            "metaName": "End Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "format": "uri",
+            "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
+          },
+          "summary": {
+            "metaName": "Summary",
+            "type": "string",
+            "description": "Give a summary of this project",
+            "markdown": true
+          },
+          "keywords": {
+            "metaName": "Keywords",
+            "type": "array",
+            "description": "Specify special elements involved",
+            "additionalItems": false,
+            "items": {
+              "type": "string",
+              "description": "e.g. AngularJS"
+            }
+          }
+        }
+      }
+    },
+  
+    "references": {
+      "metaName": "References",
+      "type": "array",
+      "additionalItems": false,
+      "description": "Specify references",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "image": {
+            "metaName": "Image",
+            "type": "string"
+          }
+        }
+      }
+    },
+  
+    "custom": {
+      "metaName": "Custom Sections",
+      "type": "array",
+      "description": "Custom Sections",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "properties": {
+          "icon": {
+            "metaName": "Icon",
+            "$ref": "#/definitions/iconmdi"
+          },
+          "title": {
+            "metaName": "Title",
+            "description": "Title of custom section",
+            "type": "string"
+          },
+          "subtitle": {
+            "metaName": "Subtitle",
+            "type": "string",
+            "description": "Sub title of custom section"
+          },
+          "startDate": {
+            "metaName": "Start Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "endDate": {
+            "metaName": "End Date",
+            "$ref": "#/definitions/iso8601"
+          },
+          "url": {
+            "metaName": "Website",
+            "type": "string",
+            "format": "uri",
+            "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
+          },
+          "level": {
+            "metaName": "Level",
+            "type": "string",
+            "description": "e.g. Master or Novice"
+          },
+          "levelNumber": {
+            "metaName": "Level (Number)",
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5,
+            "description": "Level of skill in a number from 1 to 5"
+          },
+          "content": {
+            "metaName": "Content",
+            "type": "string",
+            "description": "Content of custom section",
+            "markdown": true
+          },
+          "keywords": {
+            "metaName": "Keywords",
+            "type": "array",
+            "description": "Specify special elements involved",
+            "additionalItems": false,
+            "items": {
+              "type": "string",
+              "description": "e.g. AngularJS"
+            }
+          }
+        }
+      }
+    },
 
-  "references": {
-    "metaName": "References",
-    "type": "array",
-    "additionalItems": false,
-    "description": "Specify references",
-    "items": {
+    "meta": {
       "type": "object",
+      "description": "The schema version and any other tooling configuration lives here",
       "additionalProperties": true,
       "properties": {
-        "image": {
-          "metaName": "Image",
-          "type": "string"
+        "canonical": {
+          "type": "string",
+          "description": "URL (as per RFC 3986) to latest version of this document",
+          "format": "uri"
+        },
+        "version": {
+          "type": "string",
+          "description": "A version field which follows semver - e.g. v1.0.0"
+        },
+        "lastModified": {
+          "type": "string",
+          "description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
         }
-      }
-    }
-  },
-
-  "custom": {
-    "metaName": "Custom Sections",
-    "type": "array",
-    "description": "Custom Sections",
-    "items": {
-      "type": "object",
-      "additionalProperties": true,
-      "properties": {
-        "icon": {
-          "metaName": "Icon",
-          "$ref": "#/definitions/iconmdi"
-        },
-        "title": {
-          "metaName": "Title",
-          "description": "Title of custom section",
-          "type": "string"
-        },
-        "subtitle": {
-          "metaName": "Subtitle",
-          "type": "string",
-          "description": "Sub title of custom section"
-        },
-        "startDate": {
-          "metaName": "Start Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "endDate": {
-          "metaName": "End Date",
-          "$ref": "#/definitions/iso8601"
-        },
-        "url": {
-          "metaName": "Website",
-          "type": "string",
-          "format": "uri",
-          "description": "e.g. http://www.computer.org/csdl/mags/co/1996/10/rx069-abs.html"
-        },
-        "level": {
-          "metaName": "Level",
-          "type": "string",
-          "description": "e.g. Master or Novice"
-        },
-        "levelNumber": {
-          "metaName": "Level (Number)",
-          "type": "integer",
-          "minimum": 1,
-          "maximum": 5,
-          "description": "Level of skill in a number from 1 to 5"
-        },
-        "content": {
-          "metaName": "Content",
-          "type": "string",
-          "description": "Content of custom section",
-          "markdown": true
-        },
-        "keywords": {
-          "metaName": "Keywords",
-          "type": "array",
-          "description": "Specify special elements involved",
-          "additionalItems": false,
-          "items": {
-            "type": "string",
-            "description": "e.g. AngularJS"
-          }
-        }
-      }
-    }
-  },
-
-  "meta": {
-    "type": "object",
-    "description": "The schema version and any other tooling configuration lives here",
-    "additionalProperties": true,
-    "properties": {
-      "canonical": {
-        "type": "string",
-        "description": "URL (as per RFC 3986) to latest version of this document",
-        "format": "uri"
-      },
-      "version": {
-        "type": "string",
-        "description": "A version field which follows semver - e.g. v1.0.0"
-      },
-      "lastModified": {
-        "type": "string",
-        "description": "Using ISO 8601 with YYYY-MM-DDThh:mm:ss"
       }
     }
   }
-
-  
-
 }
