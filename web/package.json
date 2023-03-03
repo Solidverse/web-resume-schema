@@ -9,7 +9,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "lint": "eslint --ext .ts,.js,.vue, --ignore-path .gitignore .",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "update-schema-type": "bash -x ./scripts/get-schema-type.sh"
   },
   "devDependencies": {
     "@nuxtjs/color-mode": "^3.2.0",
