@@ -7,7 +7,7 @@ mkdir -p schematemp
 wget https://raw.githubusercontent.com/Solidverse/web-resume-schema/main/schema.json -O schematemp/schema.json
 
 # Generate TypeScript types from the schema
-npx --debug json-schema-to-typescript -i schematemp/schema.json -o types/schema.d.ts
+npx --debug json-schema-to-typescript -i schematemp/schema.json -o types/schemaImplementation.d.ts
 
 # Cleanup the temporary directory
 rm -rf schematemp
