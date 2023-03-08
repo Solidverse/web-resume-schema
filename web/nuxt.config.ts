@@ -6,4 +6,5 @@ export default defineNuxtConfig({
     dataValue: 'theme', // activate data-theme in <html> tag
     classSuffix: '',
   },
+  ssr: false,
 });
