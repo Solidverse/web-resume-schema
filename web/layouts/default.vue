@@ -1,13 +1,4 @@
 <template>
-  <!-- <div class="flex flex-col min-h-screen">
-    <SchemaFetchError></SchemaFetchError>
-    <NavBar></NavBar>
-    <div>
-      <slot />
-    </div>
-
-    <Footer></Footer>
-  </div> -->
   <div class="flex flex-col min-h-screen">
     <SchemaFetchError />
 
@@ -19,14 +10,6 @@
       </div>
     </main>
 
-    <!-- <footer
-      class="w-full p-4 bg-white shadow md:flex md:items-center md:justify-between md:p-6 mt-auto"
-    >
-      <span class="text-sm sm:text-center"
-        >© 2022 <a href="#" class="hover:underline">ABC</a>. All Rights
-        Reserved.
-      </span>
-    </footer> -->
     <Footer class="mt-auto" />
   </div>
 </template>
