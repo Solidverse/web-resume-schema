@@ -1,5 +1,5 @@
 <template>
-  <div>Index</div>
+  <DataUploader />
 </template>
 
 <script setup lang="ts"></script>
