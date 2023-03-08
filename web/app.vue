@@ -39,6 +39,10 @@
 </template>
 
 <script setup lang="ts">
+import { useSchemaStore } from './stores/schema';
+
+const schemaStore = useSchemaStore();
+await schemaStore.getSchema();
 const colorMode = useColorMode();
 const themes = [
   'system',
