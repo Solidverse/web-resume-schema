@@ -1,6 +1,7 @@
 <template>
   <div class="p-4 flex gap-4">
     <SchemaFetchError></SchemaFetchError>
+    <LightModeSwitcher></LightModeSwitcher>
     <button class="btn">Hello daisyUI</button>
     <select v-model="colorMode.preference" class="select w-full max-w-xs">
       <option disabled selected>Theme</option>
