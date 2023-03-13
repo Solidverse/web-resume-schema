@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.7",
-    "pinia": "^2.0.32"
+    "pinia": "^2.0.32",
+    "z-schema": "^5.0.5"
   }
 }
