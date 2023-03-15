@@ -1,5 +1,5 @@
 <template>
-  <div class="card w-96 bg-neutral text-neutral-content justify-center">
+  <div class="card bg-neutral text-neutral-content justify-center">
     <button
       class="btn btn-square btn-xs mx-3 my-3 btn-primary"
       :disabled="cardState === 'BEGIN'"
