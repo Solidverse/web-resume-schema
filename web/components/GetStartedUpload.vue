@@ -1,7 +1,7 @@
 <template>
   <div v-if="!error">
     <!-- No error -->
-    <div v-if="!chosenFile" class="card-body items-center text-center prose">
+    <div v-if="!chosenFile" class="card-body items-center text-center">
       <h2 class="card-title">Load</h2>
       <p>Upload your <b>data.json</b> file below.</p>
       <input
@@ -13,7 +13,7 @@
       />
     </div>
 
-    <div v-if="chosenFile" class="card-body items-center text-center prose">
+    <div v-if="chosenFile" class="card-body items-center text-center">
       <h2 class="card-title">Chosen file:</h2>
       <p>
         <b>{{ chosenFile.name }}</b>
@@ -26,7 +26,7 @@
       </div>
     </div>
   </div>
-  <div v-else class="card-body items-center text-center prose">
+  <div v-else class="card-body items-center text-center">
     <!-- Error -->
     <div class="alert alert-error shadow-lg">
       <div>
