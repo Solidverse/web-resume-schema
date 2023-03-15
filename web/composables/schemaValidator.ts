@@ -30,6 +30,13 @@ export const useSchemaValidator = () => {
   const schemaStore = useSchemaStore();
 
   const validate = (data: unknown): SchemaValidationResult => {
+    if (data?.constructor !== Object) {
+      return {
+        success: false,
+        error: new Error('Invalid data. JSON file must be an object.'),
+      };
+    }
+
     const schema = schemaStore.schema;
     if (!schema) {
       return {
@@ -41,7 +48,7 @@ export const useSchemaValidator = () => {
     const validator = new ZSchema({ strictMode: true });
     const valid = validator.validate(schema, data);
     const errors = validator.getLastErrors();
-    console.log({ schema, data, valid, errors });
+
     if (!valid) {
       return {
         success: false,
