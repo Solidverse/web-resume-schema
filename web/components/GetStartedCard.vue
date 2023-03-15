@@ -14,11 +14,16 @@
     >
       <h2 class="card-title">Get Started</h2>
       <p>Upload your <b>data.json</b> file or start a <b>new</b> data file.</p>
-      <button class="btn btn-primary mt-10" @click="cardState = 'UPLOAD'">
+      <button
+        class="btn btn-lg btn-primary mt-10"
+        @click="cardState = 'UPLOAD'"
+      >
         Load
       </button>
       <div class="divider">OR</div>
-      <button class="btn btn-secondary" @click="cardState = 'NEW'">New</button>
+      <button class="btn btn-lg btn-secondary" @click="cardState = 'NEW'">
+        New
+      </button>
     </div>
 
     <!-- UPLOAD -->
