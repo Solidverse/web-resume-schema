@@ -14,7 +14,8 @@ export const useSchemaStore = defineStore('schemastore', {
   actions: {
     async getSchema() {
       if (this.schema) return;
-      const { data, error } = await useFetch<Schema>(
+
+      const { data, error } = await useFetch<string>(
         'https://raw.githubusercontent.com/Solidverse/web-resume-schema/main/schema.json'
       );
       this.didFetchSchema = true;
@@ -30,7 +31,7 @@ export const useSchemaStore = defineStore('schemastore', {
         );
         return;
       }
-      const schema = toRaw(data.value);
+      const schema = JSON.parse(data.value as string) as Schema;
       this.schema = Object.freeze(schema);
     },
   },
