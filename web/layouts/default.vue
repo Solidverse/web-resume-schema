@@ -5,7 +5,9 @@
     <NavBar />
 
     <main>
-      <div class="container mx-auto px-5 md:max-w-screen-lg mt-20 md:mt-36">
+      <div
+        class="container mx-auto px-5 md:max-w-screen-lg mt-20 md:mt-36 pb-10"
+      >
         <slot />
       </div>
     </main>
