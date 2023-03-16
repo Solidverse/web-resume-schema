@@ -5,11 +5,11 @@ import { SchemaImplementation } from '~~/schema/schemaImplementation';
 export const useSchemaStore = defineStore('schemastore', {
   state: () => ({
     schema: null as null | Schema,
-    schemaImplementation: null as null | SchemaImplementation,
     /** Schema fetch error */
     schemaFetchError: null as null | Error,
     /** Did we fetch schema */
     didFetchSchema: false,
+    currentData: null as null | SchemaImplementation,
   }),
   actions: {
     async getSchema() {
