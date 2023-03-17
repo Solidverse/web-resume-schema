@@ -9,6 +9,7 @@ export const useSchemaStore = defineStore('schemastore', {
     schemaFetchError: null as null | Error,
     /** Did we fetch schema */
     didFetchSchema: false,
+    importedData: null as null | SchemaImplementation,
     currentData: null as null | SchemaImplementation,
   }),
   actions: {

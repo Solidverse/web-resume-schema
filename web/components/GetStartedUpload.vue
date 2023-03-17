@@ -35,28 +35,15 @@
       </div>
     </div>
 
-    <h4>Error Message:</h4>
+    <h4 class="text-xl font-bold mt-5">Error Message:</h4>
     <code>
       {{ error.message }}
     </code>
 
-    <h4 v-if="'validationErrors' in error" class="mt-10">
-      Validation errors ({{ error.validationErrors?.length }}):
-    </h4>
-    <div
-      v-if="'validationErrors' in error"
-      class="validation-error-window overflow-auto"
-    >
-      <div v-for="(err, i) in error.validationErrors" :key="i" class="my-3">
-        <span class="badge badge-error">
-          <Icon name="ic:baseline-error" class="mr-2" />
-          {{ i + 1 }}
-        </span>
-
-        <p>{{ err.message }}</p>
-        <div class="divider"></div>
-      </div>
-    </div>
+    <SchemaValidationErrorWidget
+      v-if="validationError"
+      :error="validationError"
+    />
 
     <div class="divider"></div>
 
@@ -71,8 +58,16 @@ import {
   useSchemaValidator,
   SchemaValidationError,
 } from '~~/composables/schemaValidator';
+import { useSchemaStore } from '~~/stores/schema';
 
 const error = ref(null as null | Error | SchemaValidationError);
+const validationError = computed((): SchemaValidationError | undefined => {
+  return error.value && 'validationErrors' in error.value
+    ? error.value
+    : undefined;
+});
+
+const schemaStore = useSchemaStore();
 const validator = useSchemaValidator();
 const uploader = ref<HTMLInputElement | null>(null);
 const chosenFile = ref(null as File | null);
@@ -94,11 +89,15 @@ const confirm = async () => {
 
   // Validate file
   const validated = validator.validate(file);
-  console.log(validated);
+
   if (!validated.success) {
     error.value = validated.error;
     return;
   }
+
+  // Save validated file to store and redirect to /edit
+  schemaStore.importedData = validated.data;
+  navigateTo('/edit');
 };
 
 const deny = () => {
@@ -140,10 +139,3 @@ const dismissError = () => {
   chosenFile.value = null;
 };
 </script>
-
-<style scoped>
-.validation-error-window {
-  min-height: 10em;
-  max-height: 15em;
-}
-</style>
