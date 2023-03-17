@@ -13,6 +13,10 @@ export const useSchemaStore = defineStore('schemastore', {
     currentData: null as null | SchemaImplementation,
   }),
   actions: {
+    importData(data: SchemaImplementation) {
+      this.importedData = data;
+      this.currentData = data;
+    },
     async getSchema() {
       if (this.schema) return;
 

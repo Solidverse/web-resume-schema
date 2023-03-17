@@ -96,7 +96,7 @@ const confirm = async () => {
   }
 
   // Save validated file to store and redirect to /edit
-  schemaStore.importedData = validated.data;
+  schemaStore.importData(validated.data);
   navigateTo('/edit');
 };
 
