@@ -6,8 +6,18 @@
 import { useSchemaStore } from '~~/stores/schema';
 
 const schemaStore = useSchemaStore();
-if (!schemaStore.currentData) {
-  // Redirect to root when we do not have currentData
-  console.log('currentData not present');
+schemaStore.$subscribe((mutation, state) => {
+  if (!state.importedData) {
+    executeNoImportedData();
+  }
+});
+
+const executeNoImportedData = () => {
+  console.warn('No data uploaded, redirecting to home.');
+  navigateTo('/');
+};
+
+if (!schemaStore.importedData) {
+  executeNoImportedData();
 }
 </script>
