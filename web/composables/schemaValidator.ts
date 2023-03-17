@@ -45,8 +45,17 @@ export const useSchemaValidator = () => {
       };
     }
 
-    const validator = new ZSchema({ strictMode: true });
-    const valid = validator.validate(schema, data);
+    // TODO: Check why setRemoteReference is not in ZSchema types
+    const validator = new ZSchema({ strictMode: false }) as ZSchema & {
+      setRemoteReference: (reference: string, val: unknown) => unknown;
+    };
+
+    validator.setRemoteReference(
+      'https://raw.githubusercontent.com/Solidverse/web-resume-schema/main/schema.json',
+      schema
+    );
+
+    const valid = validator.validate(data, schema);
     const errors = validator.getLastErrors();
 
     if (!valid) {
