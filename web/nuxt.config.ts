@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  css: ['@vuepic/vue-datepicker/dist/main.css'],
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
@@ -12,4 +13,7 @@ export default defineNuxtConfig({
     classSuffix: '',
   },
   ssr: false,
+  build: {
+    transpile: ['@vuepic/vue-datepicker'],
+  },
 });
