@@ -5,6 +5,7 @@ export default defineNuxtConfig({
     '@vueup/vue-quill/dist/vue-quill.snow.css',
   ],
   modules: [
+    '@vue-macros/nuxt',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
