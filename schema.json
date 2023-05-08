@@ -106,9 +106,9 @@
       "type": "array",
       "description": "Specify any number of social networks that you participate in",
       "additionalItems": false,
-      "required": ["id"],
-      "uniqueItems": true,
       "items": {
+        "required": ["id"],
+        "uniqueItems": true,
         "type": "object",
         "additionalProperties": true,
         "properties": {
