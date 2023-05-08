@@ -13,9 +13,9 @@
       "type": "string",
       "description": "Valid Image url or image path in static folder (eg. /folder/image1.png)"
     },
-    "iconmdi": {
+    "icon": {
       "type": "string",
-      "description": "Specify MDI icon from https://pictogrammers.github.io/@mdi/font/2.0.46/"
+      "description": "Specify icon from iconify https://iconify.design/"
     }
   },
   "properties": {
@@ -555,7 +555,7 @@
         "properties": {
           "icon": {
             "metaName": "Icon",
-            "$ref": "#/definitions/iconmdi"
+            "$ref": "#/definitions/icon"
           },
           "title": {
             "metaName": "Title",
