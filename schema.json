@@ -130,6 +130,13 @@
             "type": "string",
             "description": "e.g. http://twitter.example.com/johndoe",
             "format": "uri"
+          },
+          "color": {
+            "type": "string",
+            "description": "A color override for the profile"
+          },
+          "icon": {
+            "$ref": "#/definitions/icon"
           }
         }
       }
