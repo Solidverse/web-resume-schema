@@ -16,6 +16,10 @@
     "icon": {
       "type": "string",
       "description": "Specify icon from iconify https://iconify.design/"
+    },
+    "id": {
+      "type": "string",
+      "description": "A unique ID for internal use"
     }
   },
   "properties": {
@@ -102,10 +106,15 @@
       "type": "array",
       "description": "Specify any number of social networks that you participate in",
       "additionalItems": false,
+      "required": ["id"],
+      "uniqueItems": true,
       "items": {
         "type": "object",
         "additionalProperties": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "network": {
             "metaName": "Network Name",
             "type": "string",
@@ -114,12 +123,12 @@
           "username": {
             "metaName": "Username",
             "type": "string",
-            "description": "e.g. neutralthoughts"
+            "description": "e.g. johndoe"
           },
           "url": {
             "metaName": "URL",
             "type": "string",
-            "description": "e.g. http://twitter.example.com/neutralthoughts",
+            "description": "e.g. http://twitter.example.com/johndoe",
             "format": "uri"
           }
         }
