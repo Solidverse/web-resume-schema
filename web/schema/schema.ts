@@ -18,11 +18,12 @@ export interface Schema {
 
 export interface Definitions {
     iso8601:          Iso8601;
-    imageUrlOrStatic: Iconmdi;
-    iconmdi:          Iconmdi;
+    imageUrlOrStatic: Icon;
+    icon:             Icon;
+    id:               Icon;
 }
 
-export interface Iconmdi {
+export interface Icon {
     type:        Type;
     description: string;
 }
@@ -99,7 +100,7 @@ export interface Image {
 }
 
 export enum Ref {
-    DefinitionsIconmdi = "#/definitions/iconmdi",
+    DefinitionsIcon = "#/definitions/icon",
     DefinitionsIso8601 = "#/definitions/iso8601",
 }
 
@@ -108,7 +109,7 @@ export interface Keywords {
     type:            Type;
     description?:    string;
     additionalItems: boolean;
-    items:           Iconmdi;
+    items:           Icon;
 }
 
 export interface LevelNumber {
@@ -187,7 +188,7 @@ export interface StickyProperties {
 }
 
 export interface EndDate {
-    $ref: Ref;
+    $ref: string;
 }
 
 export interface Interests {
@@ -236,8 +237,8 @@ export interface Meta {
 
 export interface MetaProperties {
     canonical:    SchemaClass;
-    version:      Iconmdi;
-    lastModified: Iconmdi;
+    version:      Icon;
+    lastModified: Icon;
 }
 
 export interface PersonalInfo {
@@ -287,15 +288,20 @@ export interface Profiles {
 }
 
 export interface ProfilesItems {
+    required:             string[];
+    uniqueItems:          boolean;
     type:                 string;
     additionalProperties: boolean;
     properties:           HilariousProperties;
 }
 
 export interface HilariousProperties {
+    id:       EndDate;
     network:  SchemaClass;
     username: SchemaClass;
     url:      SchemaClass;
+    color:    Icon;
+    icon:     EndDate;
 }
 
 export interface Projects {
@@ -613,10 +619,11 @@ const typeMap: any = {
     ], false),
     "Definitions": o([
         { json: "iso8601", js: "iso8601", typ: r("Iso8601") },
-        { json: "imageUrlOrStatic", js: "imageUrlOrStatic", typ: r("Iconmdi") },
-        { json: "iconmdi", js: "iconmdi", typ: r("Iconmdi") },
+        { json: "imageUrlOrStatic", js: "imageUrlOrStatic", typ: r("Icon") },
+        { json: "icon", js: "icon", typ: r("Icon") },
+        { json: "id", js: "id", typ: r("Icon") },
     ], false),
-    "Iconmdi": o([
+    "Icon": o([
         { json: "type", js: "type", typ: r("Type") },
         { json: "description", js: "description", typ: "" },
     ], false),
@@ -684,7 +691,7 @@ const typeMap: any = {
         { json: "type", js: "type", typ: r("Type") },
         { json: "description", js: "description", typ: u(undefined, "") },
         { json: "additionalItems", js: "additionalItems", typ: true },
-        { json: "items", js: "items", typ: r("Iconmdi") },
+        { json: "items", js: "items", typ: r("Icon") },
     ], false),
     "LevelNumber": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -752,7 +759,7 @@ const typeMap: any = {
         { json: "courses", js: "courses", typ: r("Keywords") },
     ], false),
     "EndDate": o([
-        { json: "$ref", js: "$ref", typ: r("Ref") },
+        { json: "$ref", js: "$ref", typ: "" },
     ], false),
     "Interests": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -793,8 +800,8 @@ const typeMap: any = {
     ], false),
     "MetaProperties": o([
         { json: "canonical", js: "canonical", typ: r("SchemaClass") },
-        { json: "version", js: "version", typ: r("Iconmdi") },
-        { json: "lastModified", js: "lastModified", typ: r("Iconmdi") },
+        { json: "version", js: "version", typ: r("Icon") },
+        { json: "lastModified", js: "lastModified", typ: r("Icon") },
     ], false),
     "PersonalInfo": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -837,14 +844,19 @@ const typeMap: any = {
         { json: "items", js: "items", typ: r("ProfilesItems") },
     ], false),
     "ProfilesItems": o([
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
         { json: "properties", js: "properties", typ: r("HilariousProperties") },
     ], false),
     "HilariousProperties": o([
+        { json: "id", js: "id", typ: r("EndDate") },
         { json: "network", js: "network", typ: r("SchemaClass") },
         { json: "username", js: "username", typ: r("SchemaClass") },
         { json: "url", js: "url", typ: r("SchemaClass") },
+        { json: "color", js: "color", typ: r("Icon") },
+        { json: "icon", js: "icon", typ: r("EndDate") },
     ], false),
     "Projects": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -972,7 +984,7 @@ const typeMap: any = {
         "string",
     ],
     "Ref": [
-        "#/definitions/iconmdi",
+        "#/definitions/icon",
         "#/definitions/iso8601",
     ],
 };

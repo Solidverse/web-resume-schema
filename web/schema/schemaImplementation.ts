@@ -257,15 +257,21 @@ export interface Location {
 
 export interface Profile {
     /**
+     * A color override for the profile
+     */
+    color?: string;
+    icon?:  string;
+    id:     string;
+    /**
      * e.g. Facebook or Twitter
      */
     network?: string;
     /**
-     * e.g. http://twitter.example.com/neutralthoughts
+     * e.g. http://twitter.example.com/johndoe
      */
     url?: string;
     /**
-     * e.g. neutralthoughts
+     * e.g. johndoe
      */
     username?: string;
     [property: string]: any;
@@ -640,6 +646,9 @@ const typeMap: any = {
         { json: "region", js: "region", typ: u(undefined, "") },
     ], "any"),
     "Profile": o([
+        { json: "color", js: "color", typ: u(undefined, "") },
+        { json: "icon", js: "icon", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "network", js: "network", typ: u(undefined, "") },
         { json: "url", js: "url", typ: u(undefined, "") },
         { json: "username", js: "username", typ: u(undefined, "") },
