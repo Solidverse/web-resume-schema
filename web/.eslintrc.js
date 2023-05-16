@@ -20,6 +20,7 @@ module.exports = {
         'quotes': ['error', 'single'],
         'no-undef': 'off',
         'vue/multi-word-component-names': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         'vue/component-name-in-template-casing': ['error', 'PascalCase']
     }
 };
