@@ -43,7 +43,7 @@ export interface SchemaProperties {
     $schema:      SchemaClass;
     personalInfo: PersonalInfo;
     profiles:     Profiles;
-    work:         Work;
+    work:         Volunteer;
     education:    Education;
     awards:       Awards;
     certificates: Certificates;
@@ -59,6 +59,7 @@ export interface SchemaProperties {
 }
 
 export interface PurpleProperties {
+    id:          ID;
     icon:        Image;
     title:       SchemaClass;
     subtitle:    SchemaClass;
@@ -74,6 +75,8 @@ export interface PurpleProperties {
 export interface SchemaItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           PurpleProperties;
 }
 
@@ -100,8 +103,13 @@ export interface Image {
 }
 
 export enum Ref {
+    DefinitionsID = "#/definitions/id",
     DefinitionsIcon = "#/definitions/icon",
     DefinitionsIso8601 = "#/definitions/iso8601",
+}
+
+export interface ID {
+    $ref: Ref;
 }
 
 export interface Keywords {
@@ -131,10 +139,13 @@ export interface Awards {
 export interface AwardsItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           FluffyProperties;
 }
 
 export interface FluffyProperties {
+    id:      ID;
     title:   Phone;
     date:    Image;
     awarder: Phone;
@@ -152,10 +163,13 @@ export interface Certificates {
 export interface CertificatesItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           TentacledProperties;
 }
 
 export interface TentacledProperties {
+    id:     ID;
     name:   SchemaClass;
     date:   SchemaClass;
     url:    SchemaClass;
@@ -173,22 +187,21 @@ export interface Education {
 export interface EducationItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           StickyProperties;
 }
 
 export interface StickyProperties {
+    id:          ID;
     institution: Phone;
     url:         Phone;
     area:        Phone;
     studyType:   Phone;
-    startDate:   EndDate;
-    endDate:     EndDate;
+    startDate:   ID;
+    endDate:     ID;
     score:       Phone;
     courses:     Keywords;
-}
-
-export interface EndDate {
-    $ref: string;
 }
 
 export interface Interests {
@@ -201,10 +214,13 @@ export interface Interests {
 export interface InterestsItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           IndigoProperties;
 }
 
 export interface IndigoProperties {
+    id:       ID;
     name:     SchemaClass;
     keywords: Keywords;
 }
@@ -220,10 +236,13 @@ export interface Languages {
 export interface LanguagesItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           IndecentProperties;
 }
 
 export interface IndecentProperties {
+    id:       ID;
     language: Phone;
     fluency:  Phone;
 }
@@ -296,12 +315,12 @@ export interface ProfilesItems {
 }
 
 export interface HilariousProperties {
-    id:       EndDate;
+    id:       ID;
     network:  SchemaClass;
     username: SchemaClass;
     url:      SchemaClass;
     color:    Icon;
-    icon:     EndDate;
+    icon:     ID;
 }
 
 export interface Projects {
@@ -315,17 +334,20 @@ export interface Projects {
 export interface ProjectsItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           AmbitiousProperties;
 }
 
 export interface AmbitiousProperties {
+    id:          ID;
     images:      Images;
     name:        Phone;
     description: Phone;
     startDate:   Image;
     endDate:     Image;
-    url:         SchemaClass;
-    summary:     SchemaClass;
+    url:         Phone;
+    summary:     Phone;
     keywords:    Keywords;
 }
 
@@ -333,7 +355,7 @@ export interface Images {
     metaName:        string;
     type:            Type;
     additionalItems: boolean;
-    items:           EndDate;
+    items:           ID;
 }
 
 export interface Publications {
@@ -347,15 +369,18 @@ export interface Publications {
 export interface PublicationsItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           CunningProperties;
 }
 
 export interface CunningProperties {
-    name:        Phone;
-    publisher:   Phone;
+    id:          ID;
+    name:        SchemaClass;
+    publisher:   SchemaClass;
     releaseDate: Image;
-    url:         Phone;
-    summary:     Phone;
+    url:         SchemaClass;
+    summary:     SchemaClass;
 }
 
 export interface References {
@@ -369,10 +394,13 @@ export interface References {
 export interface ReferencesItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           MagentaProperties;
 }
 
 export interface MagentaProperties {
+    id:    ID;
     image: Name;
 }
 
@@ -387,12 +415,15 @@ export interface Skills {
 export interface SkillsItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           FriskyProperties;
 }
 
 export interface FriskyProperties {
-    name:        SchemaClass;
-    level:       SchemaClass;
+    id:          ID;
+    name:        Phone;
+    level:       Phone;
     levelNumber: LevelNumber;
     keywords:    Keywords;
 }
@@ -408,40 +439,41 @@ export interface Volunteer {
 export interface VolunteerItems {
     type:                 string;
     additionalProperties: boolean;
+    required:             string[];
+    uniqueItems:          boolean;
     properties:           MischievousProperties;
 }
 
 export interface MischievousProperties {
-    organization: Phone;
-    position:     Phone;
-    url:          Phone;
-    startDate:    Image;
-    endDate:      Image;
-    summary:      Phone;
+    id:            ID;
+    organization?: SchemaClass;
+    position:      Position;
+    url:           URL;
+    startDate:     Image;
+    endDate:       Image;
+    summary:       Summary;
+    name?:         Phone;
+    location?:     Phone;
 }
 
-export interface Work {
-    metaName:        string;
-    description:     string;
-    type:            Type;
-    additionalItems: boolean;
-    items:           WorkItems;
+export interface Position {
+    metaName:    string;
+    type:        Type;
+    description: string;
 }
 
-export interface WorkItems {
-    type:                 string;
-    additionalProperties: boolean;
-    properties:           BraggadociousProperties;
+export interface Summary {
+    metaName:    string;
+    type:        Type;
+    description: string;
+    markdown:    boolean;
 }
 
-export interface BraggadociousProperties {
-    name:      SchemaClass;
-    location:  SchemaClass;
-    position:  SchemaClass;
-    url:       SchemaClass;
-    startDate: Image;
-    endDate:   Image;
-    summary:   SchemaClass;
+export interface URL {
+    metaName:    string;
+    type:        Type;
+    description: string;
+    format:      string;
 }
 
 // Converts JSON strings to/from your types
@@ -636,7 +668,7 @@ const typeMap: any = {
         { json: "$schema", js: "$schema", typ: r("SchemaClass") },
         { json: "personalInfo", js: "personalInfo", typ: r("PersonalInfo") },
         { json: "profiles", js: "profiles", typ: r("Profiles") },
-        { json: "work", js: "work", typ: r("Work") },
+        { json: "work", js: "work", typ: r("Volunteer") },
         { json: "education", js: "education", typ: r("Education") },
         { json: "awards", js: "awards", typ: r("Awards") },
         { json: "certificates", js: "certificates", typ: r("Certificates") },
@@ -651,6 +683,7 @@ const typeMap: any = {
         { json: "meta", js: "meta", typ: r("Meta") },
     ], false),
     "PurpleProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "icon", js: "icon", typ: r("Image") },
         { json: "title", js: "title", typ: r("SchemaClass") },
         { json: "subtitle", js: "subtitle", typ: r("SchemaClass") },
@@ -665,6 +698,8 @@ const typeMap: any = {
     "SchemaItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("PurpleProperties") },
     ], false),
     "SchemaClass": o([
@@ -684,6 +719,9 @@ const typeMap: any = {
     ], false),
     "Image": o([
         { json: "metaName", js: "metaName", typ: "" },
+        { json: "$ref", js: "$ref", typ: r("Ref") },
+    ], false),
+    "ID": o([
         { json: "$ref", js: "$ref", typ: r("Ref") },
     ], false),
     "Keywords": o([
@@ -710,9 +748,12 @@ const typeMap: any = {
     "AwardsItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("FluffyProperties") },
     ], false),
     "FluffyProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "title", js: "title", typ: r("Phone") },
         { json: "date", js: "date", typ: r("Image") },
         { json: "awarder", js: "awarder", typ: r("Phone") },
@@ -728,9 +769,12 @@ const typeMap: any = {
     "CertificatesItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("TentacledProperties") },
     ], false),
     "TentacledProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "name", js: "name", typ: r("SchemaClass") },
         { json: "date", js: "date", typ: r("SchemaClass") },
         { json: "url", js: "url", typ: r("SchemaClass") },
@@ -746,20 +790,20 @@ const typeMap: any = {
     "EducationItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("StickyProperties") },
     ], false),
     "StickyProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "institution", js: "institution", typ: r("Phone") },
         { json: "url", js: "url", typ: r("Phone") },
         { json: "area", js: "area", typ: r("Phone") },
         { json: "studyType", js: "studyType", typ: r("Phone") },
-        { json: "startDate", js: "startDate", typ: r("EndDate") },
-        { json: "endDate", js: "endDate", typ: r("EndDate") },
+        { json: "startDate", js: "startDate", typ: r("ID") },
+        { json: "endDate", js: "endDate", typ: r("ID") },
         { json: "score", js: "score", typ: r("Phone") },
         { json: "courses", js: "courses", typ: r("Keywords") },
-    ], false),
-    "EndDate": o([
-        { json: "$ref", js: "$ref", typ: "" },
     ], false),
     "Interests": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -770,9 +814,12 @@ const typeMap: any = {
     "InterestsItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("IndigoProperties") },
     ], false),
     "IndigoProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "name", js: "name", typ: r("SchemaClass") },
         { json: "keywords", js: "keywords", typ: r("Keywords") },
     ], false),
@@ -786,9 +833,12 @@ const typeMap: any = {
     "LanguagesItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("IndecentProperties") },
     ], false),
     "IndecentProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "language", js: "language", typ: r("Phone") },
         { json: "fluency", js: "fluency", typ: r("Phone") },
     ], false),
@@ -851,12 +901,12 @@ const typeMap: any = {
         { json: "properties", js: "properties", typ: r("HilariousProperties") },
     ], false),
     "HilariousProperties": o([
-        { json: "id", js: "id", typ: r("EndDate") },
+        { json: "id", js: "id", typ: r("ID") },
         { json: "network", js: "network", typ: r("SchemaClass") },
         { json: "username", js: "username", typ: r("SchemaClass") },
         { json: "url", js: "url", typ: r("SchemaClass") },
         { json: "color", js: "color", typ: r("Icon") },
-        { json: "icon", js: "icon", typ: r("EndDate") },
+        { json: "icon", js: "icon", typ: r("ID") },
     ], false),
     "Projects": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -868,23 +918,26 @@ const typeMap: any = {
     "ProjectsItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("AmbitiousProperties") },
     ], false),
     "AmbitiousProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "images", js: "images", typ: r("Images") },
         { json: "name", js: "name", typ: r("Phone") },
         { json: "description", js: "description", typ: r("Phone") },
         { json: "startDate", js: "startDate", typ: r("Image") },
         { json: "endDate", js: "endDate", typ: r("Image") },
-        { json: "url", js: "url", typ: r("SchemaClass") },
-        { json: "summary", js: "summary", typ: r("SchemaClass") },
+        { json: "url", js: "url", typ: r("Phone") },
+        { json: "summary", js: "summary", typ: r("Phone") },
         { json: "keywords", js: "keywords", typ: r("Keywords") },
     ], false),
     "Images": o([
         { json: "metaName", js: "metaName", typ: "" },
         { json: "type", js: "type", typ: r("Type") },
         { json: "additionalItems", js: "additionalItems", typ: true },
-        { json: "items", js: "items", typ: r("EndDate") },
+        { json: "items", js: "items", typ: r("ID") },
     ], false),
     "Publications": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -896,14 +949,17 @@ const typeMap: any = {
     "PublicationsItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("CunningProperties") },
     ], false),
     "CunningProperties": o([
-        { json: "name", js: "name", typ: r("Phone") },
-        { json: "publisher", js: "publisher", typ: r("Phone") },
+        { json: "id", js: "id", typ: r("ID") },
+        { json: "name", js: "name", typ: r("SchemaClass") },
+        { json: "publisher", js: "publisher", typ: r("SchemaClass") },
         { json: "releaseDate", js: "releaseDate", typ: r("Image") },
-        { json: "url", js: "url", typ: r("Phone") },
-        { json: "summary", js: "summary", typ: r("Phone") },
+        { json: "url", js: "url", typ: r("SchemaClass") },
+        { json: "summary", js: "summary", typ: r("SchemaClass") },
     ], false),
     "References": o([
         { json: "metaName", js: "metaName", typ: "" },
@@ -915,9 +971,12 @@ const typeMap: any = {
     "ReferencesItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("MagentaProperties") },
     ], false),
     "MagentaProperties": o([
+        { json: "id", js: "id", typ: r("ID") },
         { json: "image", js: "image", typ: r("Name") },
     ], false),
     "Skills": o([
@@ -930,11 +989,14 @@ const typeMap: any = {
     "SkillsItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("FriskyProperties") },
     ], false),
     "FriskyProperties": o([
-        { json: "name", js: "name", typ: r("SchemaClass") },
-        { json: "level", js: "level", typ: r("SchemaClass") },
+        { json: "id", js: "id", typ: r("ID") },
+        { json: "name", js: "name", typ: r("Phone") },
+        { json: "level", js: "level", typ: r("Phone") },
         { json: "levelNumber", js: "levelNumber", typ: r("LevelNumber") },
         { json: "keywords", js: "keywords", typ: r("Keywords") },
     ], false),
@@ -948,42 +1010,44 @@ const typeMap: any = {
     "VolunteerItems": o([
         { json: "type", js: "type", typ: "" },
         { json: "additionalProperties", js: "additionalProperties", typ: true },
+        { json: "required", js: "required", typ: a("") },
+        { json: "uniqueItems", js: "uniqueItems", typ: true },
         { json: "properties", js: "properties", typ: r("MischievousProperties") },
     ], false),
     "MischievousProperties": o([
-        { json: "organization", js: "organization", typ: r("Phone") },
-        { json: "position", js: "position", typ: r("Phone") },
-        { json: "url", js: "url", typ: r("Phone") },
+        { json: "id", js: "id", typ: r("ID") },
+        { json: "organization", js: "organization", typ: u(undefined, r("SchemaClass")) },
+        { json: "position", js: "position", typ: r("Position") },
+        { json: "url", js: "url", typ: r("URL") },
         { json: "startDate", js: "startDate", typ: r("Image") },
         { json: "endDate", js: "endDate", typ: r("Image") },
-        { json: "summary", js: "summary", typ: r("Phone") },
+        { json: "summary", js: "summary", typ: r("Summary") },
+        { json: "name", js: "name", typ: u(undefined, r("Phone")) },
+        { json: "location", js: "location", typ: u(undefined, r("Phone")) },
     ], false),
-    "Work": o([
+    "Position": o([
         { json: "metaName", js: "metaName", typ: "" },
-        { json: "description", js: "description", typ: "" },
         { json: "type", js: "type", typ: r("Type") },
-        { json: "additionalItems", js: "additionalItems", typ: true },
-        { json: "items", js: "items", typ: r("WorkItems") },
+        { json: "description", js: "description", typ: "" },
     ], false),
-    "WorkItems": o([
-        { json: "type", js: "type", typ: "" },
-        { json: "additionalProperties", js: "additionalProperties", typ: true },
-        { json: "properties", js: "properties", typ: r("BraggadociousProperties") },
+    "Summary": o([
+        { json: "metaName", js: "metaName", typ: "" },
+        { json: "type", js: "type", typ: r("Type") },
+        { json: "description", js: "description", typ: "" },
+        { json: "markdown", js: "markdown", typ: true },
     ], false),
-    "BraggadociousProperties": o([
-        { json: "name", js: "name", typ: r("SchemaClass") },
-        { json: "location", js: "location", typ: r("SchemaClass") },
-        { json: "position", js: "position", typ: r("SchemaClass") },
-        { json: "url", js: "url", typ: r("SchemaClass") },
-        { json: "startDate", js: "startDate", typ: r("Image") },
-        { json: "endDate", js: "endDate", typ: r("Image") },
-        { json: "summary", js: "summary", typ: r("SchemaClass") },
+    "URL": o([
+        { json: "metaName", js: "metaName", typ: "" },
+        { json: "type", js: "type", typ: r("Type") },
+        { json: "description", js: "description", typ: "" },
+        { json: "format", js: "format", typ: "" },
     ], false),
     "Type": [
         "array",
         "string",
     ],
     "Ref": [
+        "#/definitions/id",
         "#/definitions/icon",
         "#/definitions/iso8601",
     ],

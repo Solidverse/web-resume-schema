@@ -74,6 +74,7 @@ export interface Award {
      */
     awarder?: string;
     date?:    string;
+    id:       string;
     /**
      * e.g. Received for my work with Quantum Physics
      */
@@ -90,6 +91,7 @@ export interface Certificate {
      * e.g. 1989-06-12
      */
     date?: Date;
+    id:    string;
     /**
      * e.g. CNCF
      */
@@ -112,6 +114,7 @@ export interface Custom {
     content?: string;
     endDate?: string;
     icon?:    string;
+    id:       string;
     /**
      * Specify special elements involved
      */
@@ -150,6 +153,7 @@ export interface Education {
      */
     courses?: string[];
     endDate?: string;
+    id:       string;
     /**
      * e.g. Massachusetts Institute of Technology
      */
@@ -171,6 +175,7 @@ export interface Education {
 }
 
 export interface Interest {
+    id:        string;
     keywords?: string[];
     /**
      * e.g. Philosophy
@@ -184,6 +189,7 @@ export interface Language {
      * e.g. Fluent, Beginner
      */
     fluency?: string;
+    id:       string;
     /**
      * e.g. English, Spanish
      */
@@ -283,6 +289,7 @@ export interface Project {
      */
     description?: string;
     endDate?:     string;
+    id:           string;
     images?:      string[];
     /**
      * Specify special elements involved
@@ -305,6 +312,7 @@ export interface Project {
 }
 
 export interface Publication {
+    id: string;
     /**
      * e.g. The World Wide Web
      */
@@ -326,11 +334,13 @@ export interface Publication {
 }
 
 export interface Reference {
+    id:     string;
     image?: string;
     [property: string]: any;
 }
 
 export interface Skill {
+    id: string;
     /**
      * List some keywords pertaining to this skill
      */
@@ -352,6 +362,7 @@ export interface Skill {
 
 export interface Volunteer {
     endDate?: string;
+    id:       string;
     /**
      * e.g. Facebook
      */
@@ -374,6 +385,7 @@ export interface Volunteer {
 
 export interface Work {
     endDate?: string;
+    id:       string;
     /**
      * e.g. Menlo Park, CA
      */
@@ -584,11 +596,13 @@ const typeMap: any = {
     "Award": o([
         { json: "awarder", js: "awarder", typ: u(undefined, "") },
         { json: "date", js: "date", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "summary", js: "summary", typ: u(undefined, "") },
         { json: "title", js: "title", typ: u(undefined, "") },
     ], "any"),
     "Certificate": o([
         { json: "date", js: "date", typ: u(undefined, Date) },
+        { json: "id", js: "id", typ: "" },
         { json: "issuer", js: "issuer", typ: u(undefined, "") },
         { json: "name", js: "name", typ: u(undefined, "") },
         { json: "url", js: "url", typ: u(undefined, "") },
@@ -597,6 +611,7 @@ const typeMap: any = {
         { json: "content", js: "content", typ: u(undefined, "") },
         { json: "endDate", js: "endDate", typ: u(undefined, "") },
         { json: "icon", js: "icon", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "keywords", js: "keywords", typ: u(undefined, a("")) },
         { json: "level", js: "level", typ: u(undefined, "") },
         { json: "levelNumber", js: "levelNumber", typ: u(undefined, 0) },
@@ -609,6 +624,7 @@ const typeMap: any = {
         { json: "area", js: "area", typ: u(undefined, "") },
         { json: "courses", js: "courses", typ: u(undefined, a("")) },
         { json: "endDate", js: "endDate", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "institution", js: "institution", typ: u(undefined, "") },
         { json: "score", js: "score", typ: u(undefined, "") },
         { json: "startDate", js: "startDate", typ: u(undefined, "") },
@@ -616,11 +632,13 @@ const typeMap: any = {
         { json: "url", js: "url", typ: u(undefined, "") },
     ], "any"),
     "Interest": o([
+        { json: "id", js: "id", typ: "" },
         { json: "keywords", js: "keywords", typ: u(undefined, a("")) },
         { json: "name", js: "name", typ: u(undefined, "") },
     ], "any"),
     "Language": o([
         { json: "fluency", js: "fluency", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "language", js: "language", typ: u(undefined, "") },
     ], "any"),
     "Meta": o([
@@ -656,6 +674,7 @@ const typeMap: any = {
     "Project": o([
         { json: "description", js: "description", typ: u(undefined, "") },
         { json: "endDate", js: "endDate", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "images", js: "images", typ: u(undefined, a("")) },
         { json: "keywords", js: "keywords", typ: u(undefined, a("")) },
         { json: "name", js: "name", typ: u(undefined, "") },
@@ -664,6 +683,7 @@ const typeMap: any = {
         { json: "url", js: "url", typ: u(undefined, "") },
     ], "any"),
     "Publication": o([
+        { json: "id", js: "id", typ: "" },
         { json: "name", js: "name", typ: u(undefined, "") },
         { json: "publisher", js: "publisher", typ: u(undefined, "") },
         { json: "releaseDate", js: "releaseDate", typ: u(undefined, "") },
@@ -671,9 +691,11 @@ const typeMap: any = {
         { json: "url", js: "url", typ: u(undefined, "") },
     ], "any"),
     "Reference": o([
+        { json: "id", js: "id", typ: "" },
         { json: "image", js: "image", typ: u(undefined, "") },
     ], "any"),
     "Skill": o([
+        { json: "id", js: "id", typ: "" },
         { json: "keywords", js: "keywords", typ: u(undefined, a("")) },
         { json: "level", js: "level", typ: u(undefined, "") },
         { json: "levelNumber", js: "levelNumber", typ: u(undefined, 0) },
@@ -681,6 +703,7 @@ const typeMap: any = {
     ], "any"),
     "Volunteer": o([
         { json: "endDate", js: "endDate", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "organization", js: "organization", typ: u(undefined, "") },
         { json: "position", js: "position", typ: u(undefined, "") },
         { json: "startDate", js: "startDate", typ: u(undefined, "") },
@@ -689,6 +712,7 @@ const typeMap: any = {
     ], "any"),
     "Work": o([
         { json: "endDate", js: "endDate", typ: u(undefined, "") },
+        { json: "id", js: "id", typ: "" },
         { json: "location", js: "location", typ: u(undefined, "") },
         { json: "name", js: "name", typ: u(undefined, "") },
         { json: "position", js: "position", typ: u(undefined, "") },
