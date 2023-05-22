@@ -150,7 +150,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "name": {
             "metaName": "Name",
             "type": "string",
@@ -198,7 +203,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "institution": {
             "type": "string",
             "description": "e.g. Massachusetts Institute of Technology",
@@ -253,7 +263,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "title": {
             "metaName": "Title",
             "type": "string",
@@ -285,7 +300,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "name": {
             "metaName": "Name",
             "type": "string",
@@ -320,7 +340,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "name": {
             "metaName": "Name",
             "type": "string",
@@ -359,7 +384,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "name": {
             "metaName": "Name",
             "type": "string",
@@ -399,7 +429,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "language": {
             "metaName": "Language",
             "type": "string",
@@ -421,7 +456,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "name": {
             "metaName": "Name",
             "type": "string",
@@ -448,7 +488,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "organization": {
             "metaName": "Organization",
             "type": "string",
@@ -491,7 +536,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "images": {
             "metaName": "Project Images",
             "type": "array",
@@ -552,7 +602,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "image": {
             "metaName": "Image",
             "type": "string"
@@ -568,7 +623,12 @@
       "items": {
         "type": "object",
         "additionalProperties": true,
+        "required": ["id"],
+        "uniqueItems": true,
         "properties": {
+          "id": {
+            "$ref": "#/definitions/id"
+          },
           "icon": {
             "metaName": "Icon",
             "$ref": "#/definitions/icon"
