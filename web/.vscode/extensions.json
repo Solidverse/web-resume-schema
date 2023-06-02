@@ -5,6 +5,7 @@
         "vue.volar",
         "vue.vscode-typescript-vue-plugin",
         "bradlc.vscode-tailwindcss",
-        "antfu.iconify"
+        "antfu.iconify",
+        "stylelint.vscode-stylelint"
     ]
 }
