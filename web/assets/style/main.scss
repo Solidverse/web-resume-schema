@@ -1,1 +1,10 @@
 // Main scss
+.input {
+  background-color: hsl(var(--n));
+  color: rgb(252 252 252);
+
+  &::placeholder {
+    font-style: italic;
+    opacity: 0.9;
+  }
+}
