@@ -1,0 +1,19 @@
+/* stylelint-disable selector-class-pattern */
+
+/* Override dark mode colors: https://vue3datepicker.com/customization/theming/ */
+
+.dp__theme_dark {
+  --dp-background-color: hsl(var(--n));
+  --dp-primary-color: hsl(var(--p));
+}
+
+$vue-date-picker-border-style: 1px solid rgb(255 255 255 / 70%);
+
+.dp__menu {
+  border: $vue-date-picker-border-style;
+}
+
+.dp__arrow_top {
+  border-top: $vue-date-picker-border-style;
+  border-left: $vue-date-picker-border-style;
+}

@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@vuepic/vue-datepicker/dist/main.css',
     '@vueup/vue-quill/dist/vue-quill.snow.css',
     '@/assets/style/main.scss',
+    '@/assets/style/vue-date-picker.scss',
   ],
   modules: [
     '@vue-macros/nuxt',
