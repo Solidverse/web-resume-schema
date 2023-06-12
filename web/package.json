@@ -45,6 +45,7 @@
     "@vuepic/vue-datepicker": "^4.3.0",
     "@vueup/vue-quill": "^1.1.1",
     "@vueuse/core": "^10.1.2",
+    "md-editor-v3": "^4.1.0",
     "pinia": "^2.0.32",
     "uuid": "^9.0.0",
     "z-schema": "^5.0.5"
