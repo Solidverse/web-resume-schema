@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   css: [
     '@vuepic/vue-datepicker/dist/main.css',
     '@vueup/vue-quill/dist/vue-quill.snow.css',
+    'md-editor-v3/lib/style.css',
     '@/assets/style/main.scss',
     '@/assets/style/vue-date-picker.scss',
   ],
@@ -21,5 +22,13 @@ export default defineNuxtConfig({
   ssr: false,
   build: {
     transpile: ['@vuepic/vue-datepicker'],
+  },
+  vite: {
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
+    },
   },
 });
