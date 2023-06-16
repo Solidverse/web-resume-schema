@@ -1,5 +1,7 @@
 <template>
   <div class="flex flex-col min-h-screen">
+    <div id="modals" class="prose" />
+    <Toaster />
     <SchemaFetchError />
 
     <NavBar />
